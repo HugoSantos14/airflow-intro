@@ -60,8 +60,6 @@ def user_processing():
             filename="/tmp/user_info.csv"
         )
 
-    fake_user = is_api_available()
-    user_info = extract_user(fake_user)
-    process_user(user_info)
+    process_user(extract_user(create_table >> is_api_available())) >> store_user()
 
 user_processing()
