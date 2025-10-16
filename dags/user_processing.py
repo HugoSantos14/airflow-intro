@@ -1,6 +1,7 @@
 from airflow.sdk import dag, task
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 from airflow.sdk.bases.sensor import PokeReturnValue
+from airflow.providers.postgres.hooks.postgres import PostgresHook
 
 @dag
 def user_processing():
