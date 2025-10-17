@@ -34,7 +34,7 @@ def user_processing():
         return PokeReturnValue(is_done=is_available, xcom_value=fake_user)
 
     @task
-    def extract_user(fake_user: PokeReturnValue):
+    def extract_user(fake_user: PokeReturnValue) -> dict[str]:
         return {
             "id": fake_user["id"],
             "firstname": fake_user["personalInfo"]["firstName"],
